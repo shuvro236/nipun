@@ -6,7 +6,7 @@
   <title>Percentage Calculator</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Arial', sans-serif;
       background: linear-gradient(135deg, #6a11cb, #2575fc);
       color: white;
       display: flex;
@@ -15,39 +15,61 @@
       align-items: center;
       min-height: 100vh;
       margin: 0;
+      text-align: center;
     }
 
     .container {
       background: rgba(255, 255, 255, 0.1);
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
       width: 300px;
-      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .container:hover {
+      transform: scale(1.05);
     }
 
     h1 {
-      font-size: 24px;
-      margin-bottom: 20px;
+      font-size: 28px;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    h4, h5 {
+      margin: 5px 0;
+      color: #dcdcdc;
     }
 
     input {
       width: 90%;
-      padding: 10px;
-      margin: 10px 0;
+      padding: 12px;
+      margin: 15px 0;
       border: none;
       border-radius: 5px;
       outline: none;
       font-size: 16px;
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      transition: background 0.3s ease;
+    }
+
+    input::placeholder {
+      color: #b0b0b0;
+    }
+
+    input:hover {
+      background: rgba(255, 255, 255, 0.3);
     }
 
     button {
       width: 100%;
-      padding: 10px;
+      padding: 12px;
       border: none;
       background: #ffffff;
       color: #2575fc;
-      font-size: 16px;
+      font-size: 18px;
       font-weight: bold;
       border-radius: 5px;
       cursor: pointer;
@@ -60,18 +82,24 @@
     }
 
     .result {
-      margin-top: 15px;
-      font-size: 18px;
+      margin-top: 20px;
+      font-size: 20px;
       font-weight: bold;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 10px;
+      border-radius: 5px;
     }
   </style>
 </head>
 <body>
+
   <div class="container">
-    <h1>Percentage Calculator</h1>
-    <input type="number" id="inputX" placeholder="Enter value for Aaee (x)" />
-    <input type="number" id="inputY" placeholder="Enter value for Baay (y)" />
-    <button onclick="calculate()">Calculate</button>
+    <h1>শতাংশ ক্যালকুলেটর</h1>
+    <h4>নিপুন সরকার</h4>
+    <h5>আইসিটি সুপারভাইজার</h5>
+    <input type="number" id="inputX" placeholder="আয় এর মান প্রবেশ করুন" />
+    <input type="number" id="inputY" placeholder="ব্যয় এর মান প্রবেশ করুন" />
+    <button onclick="calculate()">গণনা করুন</button>
     <div id="result" class="result"></div>
   </div>
 
@@ -81,12 +109,12 @@
       const y = document.getElementById("inputY").value;
 
       if (!x || !y || x <= 0 || y <= 0) {
-        document.getElementById("result").innerText = "Please enter valid numbers!";
+        document.getElementById("result").innerText = "দয়া করে বৈধ সংখ্যা প্রবেশ করুন!";
         return;
       }
 
       const sum = ((x - y) / x) * 100;
-      document.getElementById("result").innerText = `The sum is: ${sum.toFixed(2)}%`;
+      document.getElementById("result").innerText = `ফলাফল: ${sum.toFixed(2)}%`;
     }
   </script>
 </body>
