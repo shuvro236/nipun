@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Percentage Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+      width: 300px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+      outline: none;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      background: #ffffff;
+      color: #2575fc;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    button:hover {
+      background: #2575fc;
+      color: #ffffff;
+    }
+
+    .result {
+      margin-top: 15px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Percentage Calculator</h1>
+    <input type="number" id="inputX" placeholder="Enter value for Aaee (x)" />
+    <input type="number" id="inputY" placeholder="Enter value for Baay (y)" />
+    <button onclick="calculate()">Calculate</button>
+    <div id="result" class="result"></div>
+  </div>
+
+  <script>
+    function calculate() {
+      const x = document.getElementById("inputX").value;
+      const y = document.getElementById("inputY").value;
+
+      if (!x || !y || x <= 0 || y <= 0) {
+        document.getElementById("result").innerText = "Please enter valid numbers!";
+        return;
+      }
+
+      const sum = ((x - y) / x) * 100;
+      document.getElementById("result").innerText = `The sum is: ${sum.toFixed(2)}%`;
+    }
+  </script>
+</body>
+</html>
